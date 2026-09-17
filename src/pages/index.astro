@@ -1,4 +1,6 @@
 ---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 ---
 
@@ -12,10 +14,10 @@ import '../styles/global.css';
 		<title>Astro</title>
 	</head>
 	<body>
-		<a href="/">Home</a>
-        <a href="/about/">About</a>
-		<a href="/blog/">Blog</a>
+		<Nav/>
 
 		<h1>hello astro-marty!</h1>
+
+		<Footer />
 	</body>
 </html>
