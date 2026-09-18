@@ -1,8 +1,28 @@
 ---
+// Auto-discover top-level pages and section landing pages (e.g. tags/index.astro),
+// using each page's own `navTitle` export as the nav label.
+const pages = import.meta.glob(["../pages/*.astro", "../pages/*/index.astro"], { eager: true });
+
+// Astro's `url` export omits the trailing slash (and is "" for the root page).
+const withTrailingSlash = (url: string) => (url.endsWith("/") ? url : `${url}/`);
+
+const links = Object.values(pages)
+    .map((mod: any) => ({
+        href: withTrailingSlash(mod.url),
+        label: mod.navTitle,
+    }))
+    .sort((a, b) => (a.href === "/" ? -1 : b.href === "/" ? 1 : a.href.localeCompare(b.href)));
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 <nav id="main-menu" class="nav-links">
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
-    <a href="/tags/">Tags</a>
+    {links.map((link) => {
+        const linkPath = link.href.replace(/\/$/, "") || "/";
+        const isActive = linkPath === currentPath;
+        return (
+            <a href={link.href} aria-current={isActive ? "page" : undefined}>
+                {link.label}
+            </a>
+        );
+    })}
 </nav>
