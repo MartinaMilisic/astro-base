@@ -1,0 +1,17 @@
+---
+const {url, title, imgUrl, tags} = Astro.props
+---
+<style>
+  a {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+</style>
+
+<li data-tags={tags?.join(',')}>
+    <a href={url}>
+        <h2>{title}</h2>
+        <img src={imgUrl} width="100"/>
+    </a>
+</li>

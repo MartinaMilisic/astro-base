@@ -46,11 +46,13 @@ h1 {
   font-weight: bold;
   text-transform: uppercase;
   color: #0d0950;
+  border-radius: 999px;
 }
 
 .nav-links a:hover,
 .nav-links a:focus {
   background-color: #ff9776;
+  border-radius: 999px;
 }
 
 :has(.menu[aria-expanded="true"]) .nav-links {
@@ -74,4 +76,28 @@ h1 {
   .menu {
     display: none;
   }
+}
+
+/* blog tag filters */
+
+.tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tag-filter {
+  background-color: #fff;
+  border: 1px solid #0d0950;
+  border-radius: 999px;
+  color: #0d0950;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 5px 12px;
+}
+
+.tag-filter[aria-pressed="true"] {
+  background-color: #0d0950;
+  color: #fff;
 }
