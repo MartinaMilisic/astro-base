@@ -1,9 +1,26 @@
 ---
 import Menu from "./Menu.astro";
 import Nav from "./Nav.astro";
+import ThemeIcon from "./ThemeIcon.astro";
 ---
 
 <header>
     <Menu />
     <Nav />
+    <ThemeIcon />
 </header>
+
+<style>
+    header {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    @media screen and (min-width: 636px) {
+        header {
+            align-items: center;
+        }
+    }
+</style>

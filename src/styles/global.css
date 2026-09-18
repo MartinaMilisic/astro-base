@@ -1,3 +1,4 @@
+
 html {
   background-color: #f1f5f9;
   font-family: sans-serif;
@@ -9,6 +10,13 @@ body {
   max-width: 80ch;
   padding: 1rem;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 * {
@@ -20,15 +28,80 @@ h1 {
   font-size: 2.5rem;
 }
 
+/* dark theme */
+
+html.dark {
+  background-color: #0d0950;
+  color: #fff;
+}
+
+.dark .menu {
+  background-color: #fff;
+  color: #000;
+}
+
+.dark .nav-links a:hover,
+.dark .nav-links a:focus {
+  color: #0d0950;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
+.dark .nav-links a[aria-current="page"] {
+  background-color: #fff;
+  color: #0d0950;
+}
+
+.dark .nav-links a[aria-current="page"]:hover {
+  background-color: #fff;
+  color: #0d0950;
+}
+
+.dark a {
+  color: #ff9776;
+}
+
+.dark .tag-filter {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.dark .tag-filter:hover {
+  background-color: #fff;
+  color: #0d0950;
+}
+
+.dark .tag-filter[aria-pressed="true"] {
+  background-color: #ff9776;
+  border-color: #ff9776;
+  color: #0d0950;
+}   
+
+.dark .tag {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.dark .tag:hover {
+    background-color: #fff;
+    color: #0d0950;
+}
+
 /* nav styles */
 
 .menu {
   background-color: #0d0950;
   border: none;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
-  padding: 5px 10px;
+  padding: 0.95rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 16px;
 }
 
 .nav-links {
@@ -47,6 +120,7 @@ h1 {
   text-transform: uppercase;
   color: #0d0950;
   border-radius: 999px;
+  margin-bottom: 8px;
 }
 
 .nav-links a:hover,
@@ -60,22 +134,24 @@ h1 {
   color: #fff;
 }
 
-:has(.menu[aria-expanded="true"]) .nav-links {
-  display: unset;
+@media screen and (max-width: 635px) {
+  :has(.menu[aria-expanded="true"]) .nav-links {
+    display: unset;
+  }
 }
 
 @media screen and (min-width: 636px) {
   .nav-links {
-    margin-left: 5em;
-    display: block;
+    display: flex;
+    gap: 8px;
     position: static;
     width: auto;
     background: none;
   }
 
   .nav-links a {
-    display: inline-block;
     padding: 15px 20px;
+    margin-bottom: 0;
   }
   
   .menu {
@@ -102,7 +178,36 @@ h1 {
   padding: 5px 12px;
 }
 
+.tag-filter:hover {
+  background-color: #0d0950;
+  color: #fff;
+}
+
 .tag-filter[aria-pressed="true"] {
   background-color: #0d0950;
   color: #fff;
+}
+
+.tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 2rem 0;
+  }
+
+.tag {
+    color: #0d0950;
+    background-color: #fff;
+    text-decoration: none;
+    border: 1px solid #0d0950;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 5px 12px;
+}
+
+.tag:hover {
+    color: #fff;
+    background-color: #0d0950;
+    border: 1px solid #0d0950;
 }

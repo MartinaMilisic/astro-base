@@ -21,22 +21,4 @@ const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat
         padding: 0;
         list-style: none;
     }
-
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin: 2rem 0;
-    }
-
-    .tag {
-        color: #0d0950;
-        background-color: #fff;
-        text-decoration: none;
-        border: 1px solid #0d0950;
-        border-radius: 999px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        padding: 5px 12px;
-    }
 </style>
